@@ -63,7 +63,7 @@ tesla_revenue.tail(n=5)
 gme = yf.Ticker("GME")
 gme_data = gme.history(period="max")
 gme_data.reset_index(inplace=True)
-gme_data.head(n=5)
+gme_data.tail(n=5)
 
 url = "https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-PY0220EN-SkillsNetwork/labs/project/stock.html"
 html_data = requests.get(url=url)
@@ -83,7 +83,7 @@ for table_row in table_obj.find("tbody").find_all("tr"):
                             ignore_index=True)
 gme_revenue.head()
 gme_revenue["Revenue"] = gme_revenue['Revenue'].str.replace(',|\$',"", regex=True)
-gme_revenue.head(n=5)
+gme_revenue.tail(n=5)
 
 make_graph(tsla_data, tesla_revenue, "Tesla")
 make_graph(gme_data, gme_revenue, "GameStop")
